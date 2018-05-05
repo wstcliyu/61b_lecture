@@ -9,7 +9,9 @@ public class IntList {
 
 	/** Return the size of the list using... recursion! */
 	public int size() {
-		return 0;
+		if (this.rest == null)
+			return 1;
+		return 1+this.rest.size();
 	}
 
 	/** Return the size of the list using no recursion! */
@@ -19,7 +21,9 @@ public class IntList {
 
 	/** Returns the ith value in this list.*/
 	public int get(int i) {
-		return 0;
+		if (i == 0)
+			return this.first;
+		return this.rest.get(i-1);
 	}
 
 	public static void main(String[] args) {
@@ -27,6 +31,8 @@ public class IntList {
 		L = new IntList(10, L);
 		L = new IntList(5, L);
 
-		System.out.println(L.iterativeSize());
+		System.out.println(L.size());
+		for (int i=0; i<L.size(); i++)
+			System.out.println(L.get(i));
 	}
 } 
